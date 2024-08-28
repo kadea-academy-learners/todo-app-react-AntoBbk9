@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Task } from './types/task';
 import TaskItem from './taskItem';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import { useLocalStorage } from './hooks/localstorage';
 
 const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
@@ -40,8 +40,8 @@ const TaskList: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1>Listes de taches</h1>
+        <div className="container">
+            <h1 className="title">Listes de taches</h1>
             <input
                 type="text"
                 value={newTaskTitle}

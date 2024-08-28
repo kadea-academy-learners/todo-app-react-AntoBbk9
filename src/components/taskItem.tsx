@@ -27,21 +27,27 @@ interface TaskItemProps {
   deleteTask: (id: string) => void;
 }
 
-const TaskItem: React.FC<TaskItemProps> = ({ task, toggleComplete, deleteTask }) => (
-  <div>
-      <div>
-          <button onClick={() => toggleComplete(task.id)}>
-              {task.completed && <FiCheck />}
-          </button>
-          <div>
-              <span>
-                  {task.title}
-              </span><br></br>
-              <span>{creationdDateOfTask(task.createdAt)}</span>
-          </div>
-      </div>
-      <button onClick={() => deleteTask(task.id)}>Delete</button>
-  </div>
-);
 
+const TaskItem: React.FC<TaskItemProps> = ({ task, toggleComplete, deleteTask }) => (
+    <div className="task-item">
+        <div className="task-left">
+            <button 
+                onClick={() => toggleComplete(task.id)}
+                className={`task-button ${task.completed ? 'completed' : 'not-completed'}`}>
+                {task.completed && <FiCheck className="icon"/>}
+            </button>
+            <div className="flex flex-col">
+                <span className={`task-title ${task.completed ? 'completed' : 'not-completed'}`}>
+                    {task.title}
+                </span><br />
+                <span className="task-date">{creationdDateOfTask(task.createdAt)}</span>
+            </div>
+        </div>
+        <button 
+            onClick={() => deleteTask(task.id)}
+            className="delete-button">
+            Delete
+        </button>
+    </div>
+  );
 export default TaskItem;

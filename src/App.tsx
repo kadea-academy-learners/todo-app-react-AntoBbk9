@@ -1,14 +1,15 @@
 import TaskList from './components/taskList';
+import React from 'react';
+import './App.css';
 
 
-function App() {
 
+const App: React.FC = () => {
   return (
-  <div className="App">
-      <TaskList />
-    </div>
-  )
+      <div className="App">
+          <TaskList />
+      </div>
+  );
+};
 
-}
-
-export default App
+export default App;
