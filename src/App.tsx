@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Task } from './components/types/task';
 import TaskItem from './components/taskItem';
 import { useLocalStorage } from './components/hooks/localstorage';
-import {  } from "./App.css";
+import "./App.css"; 
 
 const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
