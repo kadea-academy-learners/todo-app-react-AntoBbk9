@@ -4,7 +4,7 @@ import TaskItem from './components/taskItem';
 import { useLocalStorage } from './components/hooks/localstorage';
 import "./App.css"; 
 
-const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+const generateId = crypto.randomUUID();
 
 const TaskList: React.FC = () => {
     const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', []);
@@ -15,7 +15,7 @@ const TaskList: React.FC = () => {
         if (!newTaskTitle.trim()) return;
 
         const newTask: Task = {
-            id: generateId(),
+            id: generateId,
             title: newTaskTitle, 
             completed: false,
             createdAt: new Date(),
